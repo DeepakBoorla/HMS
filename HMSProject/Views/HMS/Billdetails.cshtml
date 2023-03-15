@@ -1,0 +1,51 @@
+﻿@model IEnumerable<HMSProject.Models.BillGeneration>
+
+@{
+    ViewBag.Title = "Billdetails";
+}
+
+<h2>Billdetails</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Patient_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Total_Amount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Amount_Paid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Balance)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Patient_Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Total_Amount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Amount_Paid)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Balance)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.BillId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.BillId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.BillId })
+        </td>
+    </tr>
+}
+
+</table>

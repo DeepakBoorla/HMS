@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="HMSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="HMSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Admitdetails">
           <Key>
             <PropertyRef Name="Id" />
@@ -16,6 +16,16 @@
           <Property Name="CheckIn" Type="datetime" />
           <Property Name="RoomNo" Type="int" />
           <Property Name="BedNo" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="BillGeneration">
+          <Key>
+            <PropertyRef Name="BillId" />
+          </Key>
+          <Property Name="BillId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Patient Name" Type="varchar" MaxLength="50" />
+          <Property Name="Total Amount" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Amount Paid" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Balance" Type="decimal" Precision="18" Scale="0" />
         </EntityType>
         <EntityType Name="patient registration">
           <Key>
@@ -33,12 +43,24 @@
           <Property Name="Room No" Type="int" />
           <Property Name="Amount" Type="money" />
         </EntityType>
+        <EntityType Name="Staff">
+          <Key>
+            <PropertyRef Name="StaffId" />
+          </Key>
+          <Property Name="StaffId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="Address" Type="varchar" MaxLength="50" />
+          <Property Name="speciality" Type="varchar" MaxLength="50" />
+          <Property Name="Gender" Type="varchar" MaxLength="50" />
+          <Property Name="Date of joining" Type="date" />
+        </EntityType>
         <EntityContainer Name="HMSModelStoreContainer">
           <EntitySet Name="Admitdetails" EntityType="Self.Admitdetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BillGeneration" EntityType="Self.BillGeneration" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="patient registration" EntityType="Self.patient registration" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Staff" EntityType="Self.Staff" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="HMSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -73,7 +95,30 @@
         <EntityContainer Name="HMSEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Admitdetails" EntityType="Self.Admitdetail" />
           <EntitySet Name="patient_registrations" EntityType="Self.patient_registration" />
+          <EntitySet Name="BillGenerations" EntityType="HMSModel.BillGeneration" />
+          <EntitySet Name="Staffs" EntityType="HMSModel.Staff" />
         </EntityContainer>
+        <EntityType Name="BillGeneration">
+          <Key>
+            <PropertyRef Name="BillId" />
+          </Key>
+          <Property Name="BillId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Patient_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Total_Amount" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Amount_Paid" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Balance" Type="Decimal" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityType Name="Staff">
+          <Key>
+            <PropertyRef Name="StaffId" />
+          </Key>
+          <Property Name="StaffId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="speciality" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Gender" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Date_of_joining" Type="DateTime" Precision="0" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -107,6 +152,29 @@
                 <ScalarProperty Name="Disease" ColumnName="Disease" />
                 <ScalarProperty Name="Room_No" ColumnName="Room No" />
                 <ScalarProperty Name="Amount" ColumnName="Amount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BillGenerations">
+            <EntityTypeMapping TypeName="HMSModel.BillGeneration">
+              <MappingFragment StoreEntitySet="BillGeneration">
+                <ScalarProperty Name="Balance" ColumnName="Balance" />
+                <ScalarProperty Name="Amount_Paid" ColumnName="Amount Paid" />
+                <ScalarProperty Name="Total_Amount" ColumnName="Total Amount" />
+                <ScalarProperty Name="Patient_Name" ColumnName="Patient Name" />
+                <ScalarProperty Name="BillId" ColumnName="BillId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Staffs">
+            <EntityTypeMapping TypeName="HMSModel.Staff">
+              <MappingFragment StoreEntitySet="Staff">
+                <ScalarProperty Name="Date_of_joining" ColumnName="Date of joining" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="speciality" ColumnName="speciality" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="StaffId" ColumnName="StaffId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
