@@ -1,0 +1,87 @@
+﻿
+
+@model IEnumerable<HMSProject.Models.patient_registration>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Pateint details </h2>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.First_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Last_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Gender)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Age)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Mobile)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Disease)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Room_No)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Amount)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.First_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Last_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gender)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Age)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mobile)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Disease)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Room_No)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Amount)
+            </td>
+            <td>
+                @*@Html.ActionLink("Update", "Edit", new { id = item.Id }) |*@
+               <form asp-controller="HMS" asp-action="Delete" method="post">
+                <input type="submit" value="Delete" asp-route-id="@item.Id" onclick="return confirm('are sure you want to delete =@item.Id');" />
+                   </form>
+            </td>
+        </tr>
+    }
+
+</table>
