@@ -1,0 +1,53 @@
+﻿@model IEnumerable<HMSProject.Models.Staff>
+
+@{
+    ViewBag.Title = "Staffdetails";
+}
+
+<h2>Staffdetails</h2>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.speciality)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Gender)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Date_of_joining)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Address)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.speciality)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Gender)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Date_of_joining)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.StaffId }) |
+            @Html.ActionLink("Details", "Details", new { id = item.StaffId }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.StaffId })
+        </td>
+    </tr>
+}
+
+</table>
