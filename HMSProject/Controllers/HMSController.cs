@@ -15,9 +15,11 @@ namespace HMSProject.Controllers
         private HMSEntities db = new HMSEntities();
 
         // GET: HMS
-        public ActionResult Index()
+        public ActionResult Index( string searching)
         {
-            return View(db.patient_registrations.ToList());
+            return View(db.patient_registrations.Where(s => s.First_Name.Contains(searching) || searching == null).ToList());
+          //  return View(db.patient_registrations.ToList());
+
         }
 
         // GET: HMS/Create
