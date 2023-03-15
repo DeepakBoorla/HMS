@@ -5,8 +5,14 @@
 @{
     ViewBag.Title = "Index";
 }
-
-<h2>Pateint details </h2>
+<center><h2>Pateint details </h2></center>
+@using (Html.BeginForm("Index", "HMS", FormMethod.Get))
+{
+    <center>
+        @Html.TextBox("searching")
+        <input type="submit" value="submit" />
+        </center>
+}
 <table class="table">
     <tr>
         <th>
@@ -77,9 +83,9 @@
             </td>
             <td>
                 @*@Html.ActionLink("Update", "Edit", new { id = item.Id }) |*@
-               <form asp-controller="HMS" asp-action="Delete" method="post">
-                <input type="submit" value="Delete" asp-route-id="@item.Id" onclick="return confirm('are sure you want to delete =@item.Id');" />
-                   </form>
+                <form asp-controller="HMS" asp-action="Delete" method="post">
+                    <input type="submit" value="Delete" asp-route-id="@item.Id" onclick="return confirm('are sure you want to delete =@item.Id');" />
+                </form>
             </td>
         </tr>
     }
