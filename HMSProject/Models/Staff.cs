@@ -16,21 +16,45 @@ namespace HMSProject.Models
 
     public partial class Staff
     {
-        public int StaffId { get; set; }
+        public int Id { get; set; }
 
-        [Required(ErrorMessage ="Name is Required")]
-        public string Name { get; set; }
-
-        [Required(ErrorMessage = "Address is Required")]
-        public string Address { get; set; }
-
-        [Required(ErrorMessage = "Speciality is Required")]
+        [Required(ErrorMessage ="select anyone ")]
         public string speciality { get; set; }
 
+        [Required(ErrorMessage = "Name is required")]
+        public string FirstName { get; set; }
+
+        [Required(ErrorMessage = "Name is required ")]
+
+        public string LastName { get; set; }
         public string Gender { get; set; }
 
-        [Required(ErrorMessage ="DateTime is required")]
+        [DisplayName("Date of Birth")]
+        public Nullable<System.DateTime> Date_of_Birth { get; set; }
+
+        [Required(ErrorMessage = "Mobile Number is required ")]
+        [DisplayName("Phone Number")]
+        public string Mobile { get; set; }
+
+        [Required(ErrorMessage = "Email is required ")]
+        public string Email { get; set; }
+
+        [Required(ErrorMessage = "Designation is required ")]
+        public string Designation { get; set; }
+
+        [Required(ErrorMessage = "Department is required ")]
+        public string Department { get; set; }
         [DisplayName("Date of Joining")]
         public Nullable<System.DateTime> Date_of_joining { get; set; }
+
+        [Required(ErrorMessage = "Address is required ")]
+        public string Address { get; set; }
+
+        [Required(ErrorMessage = "City is required ")]
+        public string City { get; set; }
+
+        [Required(ErrorMessage = "State is required ")]
+
+        public string State { get; set; }
     }
 }

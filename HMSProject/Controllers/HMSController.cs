@@ -66,7 +66,7 @@ namespace HMSProject.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,First_Name,Last_Name,Gender,Age,Date,Mobile,Address,Disease,Amount")] Patient_Registration1 patient_registration1)
+        public ActionResult Edit([Bind(Include = "Id,FirstName,LastName,Gender,Age,Date,Mobile,Address,Disease,Amount")] Patient_Registration1 patient_registration1)
         {
             if (ModelState.IsValid)
             {
@@ -155,33 +155,33 @@ namespace HMSProject.Controllers
         //    return RedirectToAction("Index");
         //}
 
-  
-                                             //--------Bill Geneartion------------//
+
+        //--------Bill Geneartion------------//
+        // GET: Bill_demo/Create
         public ActionResult Bill()
         {
             return View();
         }
 
-        // POST: patient_registration/Create
+        // POST: Bill_demo/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Bill([Bind(Include = "Billid,Patient_Name,Total_Amount,Amount_Paid,Balance")] BillGeneration billGeneration)
+        public ActionResult Bill([Bind(Include = "C_Patient_Id,Patient_Name,Mobile,Payment_type,Doctor_s_Name,Desgination,Department,Consulation,Regulation")] Bill_demo bill_demo)
         {
             if (ModelState.IsValid)
             {
-                db.BillGenerations.Add(billGeneration);
+                db.Bill_demoes.Add(bill_demo);
                 db.SaveChanges();
-                ViewBag.Message = "saved sucessfully";
-                //return RedirectToAction("Index");
+                ViewBag.Message = "Record is saved successfully";
             }
 
-            return View(billGeneration);
+            return View(bill_demo);
         }
         public ActionResult Billdetails()
         {
-            return View(db.BillGenerations.ToList());
+            return View(db.Bill_demoes.ToList());
         }
 
 
@@ -192,20 +192,18 @@ namespace HMSProject.Controllers
             return View();
         }
 
-        // POST: patient_registration/Create
+        // POST: Staffs/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Staff([Bind(Include = "Satffid,Name,Address,Speciality,Gender,Date_of_joining")] Staff staff
-            )
+        public ActionResult Staff([Bind(Include = "Id,speciality,FirstName,LastName,Gender,Date_of_Birth,Mobile,Email,Designation,Department,Date_of_joining,Address,City,State")] Staff staff)
         {
             if (ModelState.IsValid)
             {
                 db.Staffs.Add(staff);
                 db.SaveChanges();
-                ViewBag.Message = "saved sucessfully";
-                //return RedirectToAction("Index");
+                ViewBag.Message = "Record is saved successfully";
             }
 
             return View(staff);
@@ -214,6 +212,7 @@ namespace HMSProject.Controllers
         {
             return View(db.Staffs.ToList());
         }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)

@@ -1,24 +1,35 @@
-﻿@model IEnumerable<HMSProject.Models.BillGeneration>
+﻿@model IEnumerable<HMSProject.Models.Bill_demo>
 
 @{
     ViewBag.Title = "Billdetails";
 }
 
-<h4>BillDetails</h4>
-
+<h2>Billdetails</h2>
 <table class="table">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Patient_Name)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Total_Amount)
+            @Html.DisplayNameFor(model => model.Mobile)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Amount_Paid)
+            @Html.DisplayNameFor(model => model.Doctor_s_Name)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Balance)
+            @Html.DisplayNameFor(model => model.Desgination)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Department)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Payment_type)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Consulation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Regulation)
         </th>
         <th></th>
     </tr>
@@ -29,18 +40,30 @@
             @Html.DisplayFor(modelItem => item.Patient_Name)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Total_Amount)
+            @Html.DisplayFor(modelItem => item.Mobile)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Amount_Paid)
+            @Html.DisplayFor(modelItem => item.Doctor_s_Name)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Balance)
+            @Html.DisplayFor(modelItem => item.Desgination)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.BillId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.BillId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.BillId })
+            @Html.DisplayFor(modelItem => item.Department)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Payment_type)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Consulation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Regulation)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.C_Patient_Id }) |
+            @Html.ActionLink("Details", "Details", new { id = item.C_Patient_Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.C_Patient_Id })
         </td>
     </tr>
 }
