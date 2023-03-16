@@ -29,7 +29,7 @@ namespace HMSProject.Models
 
         public string Gender { get; set; }
 
-        [Required(ErrorMessage ="Date is Required")]
+        [Required(ErrorMessage ="DateTime is required")]
         [DisplayName("Date of Joining")]
         public Nullable<System.DateTime> Date_of_joining { get; set; }
     }
