@@ -17,7 +17,7 @@ namespace HMSProject.Controllers
         // GET: HMS
         public ActionResult Index( string searching)
         {
-            return View(db.patient_registrations.Where(s => s.First_Name.Contains(searching) || searching == null).ToList());
+            return View(db.Patient_Registration1.Where(s => s.FirstName.Contains(searching) || searching == null).ToList());
           //  return View(db.patient_registrations.ToList());
 
         }
@@ -33,17 +33,17 @@ namespace HMSProject.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,First_Name,Last_Name,Gender,Age,Date,Mobile,Address,Disease,Amount")] patient_registration patient_registration)
+        public ActionResult Create([Bind(Include = "Id,FirstName,LastName,Gender,Age,Date,Mobile,Address,Disease,Amount")] Patient_Registration1 patient_registration1)
         {
             if (ModelState.IsValid)
             {
-                db.patient_registrations.Add(patient_registration);
+                db.Patient_Registration1.Add(patient_registration1);
                 db.SaveChanges();
                 ViewBag.Message = "saved sucessfully";
                 //return RedirectToAction("Index");
             }
 
-            return View(patient_registration);
+            return View(patient_registration1);
         }
 
         // GET: HMS/Edit/5
@@ -53,12 +53,12 @@ namespace HMSProject.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            patient_registration patient_registration = db.patient_registrations.Find(id);
-            if (patient_registration == null)
+            Patient_Registration1 patient_registration1 = db.Patient_Registration1.Find(id);
+            if (patient_registration1 == null)
             {
                 return HttpNotFound();
             }
-            return View(patient_registration);
+            return View(patient_registration1);
         }
 
         // POST: HMS/Edit/5
@@ -66,15 +66,15 @@ namespace HMSProject.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,First_Name,Last_Name,Gender,Age,Date,Mobile,Address,Disease,Amount")] patient_registration patient_registration)
+        public ActionResult Edit([Bind(Include = "Id,First_Name,Last_Name,Gender,Age,Date,Mobile,Address,Disease,Amount")] Patient_Registration1 patient_registration1)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(patient_registration).State = EntityState.Modified;
+                db.Entry(patient_registration1).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(patient_registration);
+            return View(patient_registration1);
         }
 
         // GET: HMS/Delete/5
@@ -93,15 +93,15 @@ namespace HMSProject.Controllers
         //}
 
         // POST: HMS/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int? id)
-        {
-            patient_registration patient_registration = db.patient_registrations.Find(id);
-            db.patient_registrations.Remove(patient_registration);
-            db.SaveChanges();
-            return RedirectToAction("Index");
-        }
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult Delete(int? id)
+        //{
+        //    patient_registration patient_registration = db.patient_registrations.Find(id);
+        //    db.patient_registrations.Remove(patient_registration);
+        //    db.SaveChanges();
+        //    return RedirectToAction("Index");
+        //}
 
                                              //------Admit----//
        // GET: Admitdetails/Create

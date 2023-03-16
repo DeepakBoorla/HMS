@@ -25,9 +25,9 @@ namespace HMSProject.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<patient_registration> patient_registrations { get; set; }
         public virtual DbSet<BillGeneration> BillGenerations { get; set; }
         public virtual DbSet<Staff> Staffs { get; set; }
         public virtual DbSet<Admitdetail> Admitdetails { get; set; }
+        public virtual DbSet<Patient_Registration1> Patient_Registration1 { get; set; }
     }
 }

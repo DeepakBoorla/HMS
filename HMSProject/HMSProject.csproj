@@ -168,7 +168,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>HMS.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\patient_registration.cs">
+    <Compile Include="Models\Patient_Registration1.cs">
       <DependentUpon>HMS.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Staff.cs">
@@ -229,15 +229,15 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\HMS\Edit.cshtml" />
-    <Content Include="Views\HMS\Index.cshtml" />
     <Content Include="Views\HMS\Admit.cshtml" />
     <Content Include="Views\HMS\Admitdetails.cshtml" />
-    <Content Include="Views\HMS\Create.cshtml" />
     <Content Include="Views\HMS\Bill.cshtml" />
     <Content Include="Views\HMS\Billdetails.cshtml" />
     <Content Include="Views\HMS\Staff.cshtml" />
     <Content Include="Views\HMS\Staffdetails.cshtml" />
+    <Content Include="Views\HMS\Create.cshtml" />
+    <Content Include="Views\HMS\Edit.cshtml" />
+    <Content Include="Views\HMS\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

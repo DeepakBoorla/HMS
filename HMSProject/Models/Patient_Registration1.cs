@@ -11,16 +11,22 @@ namespace HMSProject.Models
 {
     using System;
     using System.Collections.Generic;
-    
-    public partial class patient_registration
+    using System.ComponentModel.DataAnnotations;
+
+    public partial class Patient_Registration1
     {
         public long Id { get; set; }
-        public string First_Name { get; set; }
-        public string Last_Name { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
         public string Gender { get; set; }
         public Nullable<int> Age { get; set; }
         public Nullable<System.DateTime> Date { get; set; }
-        public Nullable<int> Mobile { get; set; }
+
+        [Required(ErrorMessage = "Phone Number Required")]
+        //[RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$",
+        // ErrorMessage = "Please enter PhoneNumber as 0123456789, 012-345-6789, (012)-345-6789.")]
+        public string Mobile { get; set; }
+
         public string Address { get; set; }
         public string Disease { get; set; }
         public Nullable<decimal> Amount { get; set; }

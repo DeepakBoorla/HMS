@@ -11,31 +11,15 @@ namespace HMSProject.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class Admitdetail
     {
-        public int Id { get; set; }
-
-        [Required(ErrorMessage = " please enter the patientId")]
-        [DisplayName("PatientId ")]
+        public int ID { get; set; }
         public Nullable<int> PatientId { get; set; }
-
-        [Required(ErrorMessage = "please enter the Name")]
-        [DisplayName("Name")]
         public string Name { get; set; }
-        public string Doctor_s_Name { get; set; }
-
-
-        [Required(ErrorMessage = "please enter the CheckIn")]
-        [DisplayName("CheckIn")]
+        public string Doctor_sName { get; set; }
         public Nullable<System.DateTime> CheckIn { get; set; }
-
-
-        [Required(ErrorMessage = "please enter the RoomNo")]
-        [DisplayName("RoomNo")]
         public Nullable<int> RoomNo { get; set; }
-        public string BedNo { get; set; }
+        public Nullable<int> BedNo { get; set; }
     }
 }
