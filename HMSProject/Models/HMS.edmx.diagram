@@ -5,10 +5,10 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="8183592ef70e451cb0b19b465b639abb" Name="Diagram1">
-        <EntityTypeShape EntityType="HMSModel.BillGeneration" Width="1.5" PointX="4.75" PointY="0.875" />
-        <EntityTypeShape EntityType="HMSModel.Staff" Width="1.5" PointX="6.5" PointY="0.875" />
         <EntityTypeShape EntityType="HMSModel.Admitdetail" Width="1.5" PointX="0.75" PointY="1.125" />
         <EntityTypeShape EntityType="HMSModel.Patient_Registration1" Width="1.5" PointX="2.75" PointY="0.875" />
+        <EntityTypeShape EntityType="HMSModel.Bill_demo" Width="1.5" PointX="4.875" PointY="2" />
+        <EntityTypeShape EntityType="HMSModel.Staff" Width="1.5" PointX="0.75" PointY="4.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

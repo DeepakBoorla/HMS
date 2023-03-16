@@ -11,37 +11,18 @@ namespace HMSProject.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class Patient_Registration1
     {
         public long Id { get; set; }
-
-        [Required(ErrorMessage = "Name is Required")]
         public string FirstName { get; set; }
-
-        [Required(ErrorMessage = "Name is Required")]
         public string LastName { get; set; }
         public string Gender { get; set; }
-
-        [Required(ErrorMessage = "Age is Required")]
         public Nullable<int> Age { get; set; }
         public Nullable<System.DateTime> Date { get; set; }
-
-        [Required(ErrorMessage = "Phone Number Required")]
-        [DisplayName("PhoneNumber")]
-        //[RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$",
-        // ErrorMessage = "Please enter PhoneNumber as 0123456789, 012-345-6789, (012)-345-6789.")]
         public string Mobile { get; set; }
-
-        [Required(ErrorMessage = "Address is Required")]
         public string Address { get; set; }
-
-        [Required(ErrorMessage = "Disease is Required")]
         public string Disease { get; set; }
-
-        [Required(ErrorMessage = "Amount is Required")]
         public Nullable<decimal> Amount { get; set; }
     }
 }
