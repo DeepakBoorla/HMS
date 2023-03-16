@@ -11,6 +11,7 @@ namespace HMSProject.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
 
     public partial class Staff
@@ -27,6 +28,8 @@ namespace HMSProject.Models
         public string speciality { get; set; }
 
         public string Gender { get; set; }
+
+        [DisplayName("Date of Joining")]
         public Nullable<System.DateTime> Date_of_joining { get; set; }
     }
 }
