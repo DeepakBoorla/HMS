@@ -5,13 +5,13 @@
 @{
     ViewBag.Title = "Index";
 }
-<center><h2>Pateint details </h2></center>
+<h2>Pateint details</h2>
 @using (Html.BeginForm("Index", "HMS", FormMethod.Get))
 {
-    <center>
+    <div>
         @Html.TextBox("searching")
-        <input type="submit" value="submit" />
-        </center>
+        <input type="submit" value="Search" />
+        </div>
 }
 <table class="table">
     <tr>
@@ -39,9 +39,7 @@
         <th>
             @Html.DisplayNameFor(model => model.Disease)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Room_No)
-        </th>
+        
         <th>
             @Html.DisplayNameFor(model => model.Amount)
         </th>
@@ -74,9 +72,6 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Disease)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Room_No)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Amount)

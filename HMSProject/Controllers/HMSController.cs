@@ -33,7 +33,7 @@ namespace HMSProject.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,First_Name,Last_Name,Gender,Age,Date,Mobile,Address,Disease,Room_No,Amount")] patient_registration patient_registration)
+        public ActionResult Create([Bind(Include = "Id,First_Name,Last_Name,Gender,Age,Date,Mobile,Address,Disease,Amount")] patient_registration patient_registration)
         {
             if (ModelState.IsValid)
             {
@@ -66,7 +66,7 @@ namespace HMSProject.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,First_Name,Last_Name,Gender,Age,Date,Mobile,Address,Disease,Room_No,Amount")] patient_registration patient_registration)
+        public ActionResult Edit([Bind(Include = "Id,First_Name,Last_Name,Gender,Age,Date,Mobile,Address,Disease,Amount")] patient_registration patient_registration)
         {
             if (ModelState.IsValid)
             {
@@ -115,7 +115,7 @@ namespace HMSProject.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Admit([Bind(Include = "Id,PatientId,Name,Doctor_s_Name,CheckIn,RoomNo,BedNo")] Admitdetail admitdetail)
+        public ActionResult Admit([Bind(Include = "ID,PatientId,Name,Doctor_sName,CheckIn,RoomNo,BedNo")] Admitdetail admitdetail)
         {
             if (ModelState.IsValid)
             {

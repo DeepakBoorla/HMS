@@ -23,7 +23,6 @@ namespace HMSProject.Models
         public Nullable<int> Mobile { get; set; }
         public string Address { get; set; }
         public string Disease { get; set; }
-        public Nullable<int> Room_No { get; set; }
         public Nullable<decimal> Amount { get; set; }
     }
 }

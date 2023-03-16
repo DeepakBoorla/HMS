@@ -14,12 +14,12 @@ namespace HMSProject.Models
     
     public partial class Admitdetail
     {
-        public int Id { get; set; }
+        public int ID { get; set; }
         public Nullable<int> PatientId { get; set; }
         public string Name { get; set; }
-        public string Doctor_s_Name { get; set; }
+        public string Doctor_sName { get; set; }
         public Nullable<System.DateTime> CheckIn { get; set; }
         public Nullable<int> RoomNo { get; set; }
-        public string BedNo { get; set; }
+        public Nullable<int> BedNo { get; set; }
     }
 }
