@@ -11,13 +11,26 @@ namespace HMSProject.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations;
+
     public partial class BillGeneration
     {
         public int BillId { get; set; }
+
+        [Required(ErrorMessage = "Name is Required")]
+        [DisplayName("Patient Name")]
         public string Patient_Name { get; set; }
+
+        [Required(ErrorMessage = "Amount is Required")]
+        [DisplayName("Total Amount")]
         public Nullable<decimal> Total_Amount { get; set; }
+
+        [Required(ErrorMessage = "Amount is Required")]
+        [DisplayName(" Amount Paid")]
         public Nullable<decimal> Amount_Paid { get; set; }
+
+        [Required(ErrorMessage = "Balance is Required")]
         public Nullable<decimal> Balance { get; set; }
     }
 }

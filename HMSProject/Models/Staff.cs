@@ -19,8 +19,13 @@ namespace HMSProject.Models
 
         [Required(ErrorMessage ="Name is Required")]
         public string Name { get; set; }
+
+        [Required(ErrorMessage = "Address is Required")]
         public string Address { get; set; }
+
+        [Required(ErrorMessage = "Speciality is Required")]
         public string speciality { get; set; }
+
         public string Gender { get; set; }
         public Nullable<System.DateTime> Date_of_joining { get; set; }
     }
