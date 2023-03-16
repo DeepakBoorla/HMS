@@ -11,10 +11,13 @@ namespace HMSProject.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Staff
     {
         public int StaffId { get; set; }
+
+        [Required(ErrorMessage ="Name is Required")]
         public string Name { get; set; }
         public string Address { get; set; }
         public string speciality { get; set; }
