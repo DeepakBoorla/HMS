@@ -31,6 +31,9 @@
         <th>
             @Html.DisplayNameFor(model => model.Regulation)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Total_Amount)
+        </th>
         <th></th>
     </tr>
 
@@ -61,8 +64,9 @@
             @Html.DisplayFor(modelItem => item.Regulation)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.C_Patient_Id }) |
-            @Html.ActionLink("Details", "Details", new { id = item.C_Patient_Id }) |
+            @Html.DisplayFor(modelItem => item.Total_Amount)
+        </td>
+        <td>
             @Html.ActionLink("Delete", "Delete", new { id = item.C_Patient_Id })
         </td>
     </tr>
