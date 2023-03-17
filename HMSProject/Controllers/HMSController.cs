@@ -77,34 +77,9 @@ namespace HMSProject.Controllers
             return View(patient_registration1);
         }
 
-        // GET: HMS/Delete/5
-        //public ActionResult Delete(int? id)
-        //{
-        //    if (id == null)
-        //    {
-        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-        //    }
-        //    patient_registration patient_registration = db.patient_registrations.Find(id);
-        //    if (patient_registration == null)
-        //    {
-        //        return HttpNotFound();
-        //    }
-        //    return View(patient_registration);
-        //}
-
-        // POST: HMS/Delete/5
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult Delete(int? id)
-        //{
-        //    patient_registration patient_registration = db.patient_registrations.Find(id);
-        //    db.patient_registrations.Remove(patient_registration);
-        //    db.SaveChanges();
-        //    return RedirectToAction("Index");
-        //}
-
-                                             //------Admit----//
-       // GET: Admitdetails/Create
+       
+        //------Admit----//
+        // GET: Admitdetails/Create
         public ActionResult Admit()
         {
             return View();
@@ -157,6 +132,14 @@ namespace HMSProject.Controllers
 
 
         //--------Bill Geneartion------------//
+
+
+        public ActionResult Billdetails()
+        {
+            return View(db.Bill_demoes.ToList());
+        }
+
+    
         // GET: Bill_demo/Create
         public ActionResult Bill()
         {
@@ -168,22 +151,17 @@ namespace HMSProject.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Bill([Bind(Include = "C_Patient_Id,Patient_Name,Mobile,Payment_type,Doctor_s_Name,Desgination,Department,Consulation,Regulation")] Bill_demo bill_demo)
+        public ActionResult Bill([Bind(Include = "C_Patient_Id,Patient_Name,Mobile,Payment_type,Doctor_s_Name,Desgination,Department,Consulation,Regulation,Total_Amount")] Bill_demo bill_demo)
         {
             if (ModelState.IsValid)
             {
                 db.Bill_demoes.Add(bill_demo);
                 db.SaveChanges();
-                ViewBag.Message = "Record is saved successfully";
+                ViewBag.Message = "Record Saved Successfully";
             }
 
             return View(bill_demo);
         }
-        public ActionResult Billdetails()
-        {
-            return View(db.Bill_demoes.ToList());
-        }
-
 
         //-----STAFF------///
 

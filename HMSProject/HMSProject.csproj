@@ -195,8 +195,6 @@
       <DependentUpon>HMS.edmx</DependentUpon>
       <LastGenOutput>HMS.cs</LastGenOutput>
     </Content>
-    <Content Include="Scripts\bootstrap.js" />
-    <Content Include="Scripts\bootstrap.min.js" />
     <EntityDeploy Include="Models\HMS.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>HMS.Designer.cs</LastGenOutput>
@@ -204,7 +202,17 @@
     <Content Include="Models\HMS.edmx.diagram">
       <DependentUpon>HMS.edmx</DependentUpon>
     </Content>
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
@@ -234,23 +242,16 @@
     <Content Include="Views\HMS\Create.cshtml" />
     <Content Include="Views\HMS\Edit.cshtml" />
     <Content Include="Views\HMS\Index.cshtml" />
-    <Content Include="Views\HMS\Bill.cshtml" />
-    <Content Include="Views\HMS\Billdetails.cshtml" />
     <Content Include="Views\HMS\Staff.cshtml" />
     <Content Include="Views\HMS\Staffdetails.cshtml" />
+    <Content Include="Views\HMS\Billdetails.cshtml" />
+    <Content Include="Views\HMS\Bill.cshtml" />
+    <Content Include="Views\Home\sum.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="Content\bootstrap.min.css.map" />
-    <Content Include="Content\bootstrap.css.map" />
-    <Content Include="Content\bootstrap-theme.min.css.map" />
-    <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />

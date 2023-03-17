@@ -5,6 +5,7 @@
 }
 
 <h2>Pateint Form</h2>
+
 <table class="table">
     <tr>
         <th>
@@ -67,8 +68,9 @@
             @Html.DisplayFor(modelItem => item.Amount)
         </td>
         <td>
-            @Html.ActionLink("Update", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            @Html.ActionLink("Update", "Edit", new { id = item.Id }) |
+            @*@Html.ActionLink("Delete", "Delete", new { id = item.Id })*@
+            <button type="submit" class="btn" onclick="return confirm('Are you sure you want to delete?');"><i class="bi bi-trash-fill"></i>Delete</button>
         </td>
     </tr>
 }

@@ -18,23 +18,29 @@ namespace HMSProject.Models
     {
         public int C_Patient_Id { get; set; }
 
-        [Required(ErrorMessage ="Name is Required")]
-        [DisplayName("Paitent Name")]
+        [Required(ErrorMessage ="Name is required")]
+        [DisplayName("Patient Name")]
         public string Patient_Name { get; set; }
 
-        [Required(ErrorMessage = "Phonenumber is Required")]
+        [Required(ErrorMessage = "Phone Number is required")]
         public string Mobile { get; set; }
 
-
+        [Required(ErrorMessage = "Please select the type")]
+        [DisplayName("Payment type")]
         public string Payment_type { get; set; }
 
-        [Required(ErrorMessage = "Name is Required")]
+        [Required(ErrorMessage = "Doctor's Name is required")]
         [DisplayName("Doctor's Name")]
+
         public string Doctor_s_Name { get; set; }
 
         public string Desgination { get; set; }
         public string Department { get; set; }
         public Nullable<decimal> Consulation { get; set; }
         public Nullable<decimal> Regulation { get; set; }
+
+
+        [DisplayName("Total Name")]
+        public Nullable<decimal> Total_Amount { get; set; }
     }
 }

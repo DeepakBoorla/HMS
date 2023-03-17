@@ -11,18 +11,34 @@ namespace HMSProject.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Patient_Registration1
     {
         public long Id { get; set; }
+
+        [Required(ErrorMessage = "Name is required")]
         public string FirstName { get; set; }
+
+        [Required(ErrorMessage = "Name is required")]
         public string LastName { get; set; }
         public string Gender { get; set; }
+
+        [Required(ErrorMessage = "Age is required")]
         public Nullable<int> Age { get; set; }
         public Nullable<System.DateTime> Date { get; set; }
+
+        [Required(ErrorMessage = "Phone Number is required")]
+
         public string Mobile { get; set; }
+
+        [Required(ErrorMessage = "Address is required")]
         public string Address { get; set; }
+
+        [Required(ErrorMessage = "Disease is required")]
         public string Disease { get; set; }
+
+        [Required(ErrorMessage = "Amount is required")]
         public Nullable<decimal> Amount { get; set; }
     }
 }
