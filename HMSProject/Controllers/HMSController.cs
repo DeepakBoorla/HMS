@@ -66,7 +66,7 @@ namespace HMSProject.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,First_Name,Last_Name,Gender,Age,Date,Mobile,Address,Disease,Amount")] Patient_Registration1 patient_registration1)
+        public ActionResult Edit([Bind(Include = "Id,FirstName,LastName,Gender,Age,Date,Mobile,Address,Disease,Amount")] Patient_Registration1 patient_registration1)
         {
             if (ModelState.IsValid)
             {
@@ -77,34 +77,15 @@ namespace HMSProject.Controllers
             return View(patient_registration1);
         }
 
-        // GET: HMS/Delete/5
-        //public ActionResult Delete(int? id)
-        //{
-        //    if (id == null)
-        //    {
-        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-        //    }
-        //    patient_registration patient_registration = db.patient_registrations.Find(id);
-        //    if (patient_registration == null)
-        //    {
-        //        return HttpNotFound();
-        //    }
-        //    return View(patient_registration);
-        //}
-
-        // POST: HMS/Delete/5
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult Delete(int? id)
-        //{
-        //    patient_registration patient_registration = db.patient_registrations.Find(id);
-        //    db.patient_registrations.Remove(patient_registration);
-        //    db.SaveChanges();
-        //    return RedirectToAction("Index");
-        //}
-
-                                             //------Admit----//
-       // GET: Admitdetails/Create
+       public ActionResult Delete(Patient_Registration1 emp)
+        {
+            var n=db.Patient_Registration1.SingleOrDefault(m=>m.Id==emp.Id);
+           db.Patient_Registration1.Remove(n);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+        //------Admit----//
+        // GET: Admitdetails/Create
         public ActionResult Admit()
         {
             return View();
@@ -141,22 +122,22 @@ namespace HMSProject.Controllers
         //    Admitdetail admitdetail = db.Admitdetails.Find(id);
         //    if (admitdetail == null)
         //    {
-        //        return HttpNotFound();
-        //    }
-        //    return View(admitdetail);
-        //}         // POST: Admitdetails/Delete/5
-        //[HttpPost, ActionName("Delete")]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult DeleteConfirmed(int id)
-        //{
-        //    Admitdetail admitdetail = db.Admitdetails.Find(id);
-        //    db.Admitdetails.Remove(admitdetail);
-        //    db.SaveChanges();
-        //    return RedirectToAction("Index");
-        //}
+                //        return HttpNotFound();
+                //    }
+                //    return View(admitdetail);
+                //}         // POST: Admitdetails/Delete/5
+                //[HttpPost, ActionName("Delete")]
+                //[ValidateAntiForgeryToken]
+        public ActionResult Delete1(int ID)
+        {
+            Admitdetail admitdetail = db.Admitdetails.Find(ID);
+            db.Admitdetails.Remove(admitdetail);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
 
-  
-                                             //--------Bill Geneartion------------//
+
+        //--------Bill Geneartion------------//
         public ActionResult Bill()
         {
             return View();
@@ -212,7 +193,8 @@ namespace HMSProject.Controllers
         }
         public ActionResult Staffdetails()
         {
-            return View(db.Staffs.ToList());
+            IEnumerable<Patient_Registration1> emp = db.Patient_Registration1;
+            return View(emp);
         }
         protected override void Dispose(bool disposing)
         {
@@ -221,6 +203,8 @@ namespace HMSProject.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        
         }
     }
 }
+
