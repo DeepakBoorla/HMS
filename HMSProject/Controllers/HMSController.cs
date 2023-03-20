@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Security.Cryptography.X509Certificates;
 using System.Web;
 using System.Web.Mvc;
 using HMSProject.Models;
@@ -45,6 +46,14 @@ namespace HMSProject.Controllers
 
             return View(patient_registration1);
         }
+        public ActionResult Delete(int id)
+        {
+            Patient_Registration1 patient_Registration1 = db.Patient_Registration1.Find(id);
+            db.Patient_Registration1.Remove(patient_Registration1);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
 
         // GET: HMS/Edit/5
         public ActionResult Edit(int? id)
@@ -76,6 +85,7 @@ namespace HMSProject.Controllers
             }
             return View(patient_registration1);
         }
+
 
        
         //------Admit----//
@@ -122,13 +132,13 @@ namespace HMSProject.Controllers
         //}         // POST: Admitdetails/Delete/5
         //[HttpPost, ActionName("Delete")]
         //[ValidateAntiForgeryToken]
-        //public ActionResult DeleteConfirmed(int id)
-        //{
-        //    Admitdetail admitdetail = db.Admitdetails.Find(id);
-        //    db.Admitdetails.Remove(admitdetail);
-        //    db.SaveChanges();
-        //    return RedirectToAction("Index");
-        //}
+        public ActionResult AdmitDelete(int id)
+        {
+            Admitdetail admitdetail = db.Admitdetails.Find(id);
+            db.Admitdetails.Remove(admitdetail);
+            db.SaveChanges();
+            return RedirectToAction("Admitdetails");
+        }
 
 
         //--------Bill Geneartion------------//
@@ -139,41 +149,59 @@ namespace HMSProject.Controllers
             return View(db.Bill_demoes.ToList());
         }
 
-    
+
         // GET: Bill_demo/Create
         public ActionResult Bill()
         {
             return View();
-        }
 
-        // POST: Bill_demo/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        }
+             // POST: Bill_demo/Create
+             // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+             // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Bill([Bind(Include = "C_Patient_Id,Patient_Name,Mobile,Payment_type,Doctor_s_Name,Desgination,Department,Consulation,Regulation,Total_Amount")] Bill_demo bill_demo)
+        public ActionResult Bill([Bind(Include = "C_Patient_Id,Patient_Name,Mobile,/*Payment_type*/,Doctor_s_Name,Desgination,Department,Consulation,Regulation,Total_Amount")] Bill_demo Bill_demo)
         {
             if (ModelState.IsValid)
             {
-                db.Bill_demoes.Add(bill_demo);
+                db.Bill_demoes.Add(Bill_demo);
                 db.SaveChanges();
                 ViewBag.Message = "Record Saved Successfully";
+                return RedirectToAction("Index");
+
             }
 
-            return View(bill_demo);
-        }
+            return View(Bill_demo);
 
+
+              ActionResult Delete(int id)
+            { 
+                Bill_demo Bill_demoes = db.Bill_demoes.Find(id);
+                db.Bill_demoes.Remove(Bill_demo);
+                db.SaveChanges();
+                return RedirectToAction("Billdetails");
+            }
+            //}
+            //public ActionResult BillDelete(int id)
+            //{
+            //    Staff Staff = db.Bill.Find(id);
+            //    db.Bill.Remove(Bill);
+            //    db.SaveChanges();
+            //    return RedirectToAction("details");
+        }
         //-----STAFF------///
 
         public ActionResult Staff()
         {
             return View();
         }
+    
 
-        // POST: Staffs/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
+            // POST: Staffs/Create
+            // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+            // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+            [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Staff([Bind(Include = "Id,speciality,FirstName,LastName,Gender,Date_of_Birth,Mobile,Email,Designation,Department,Date_of_joining,Address,City,State")] Staff staff)
         {
@@ -186,7 +214,15 @@ namespace HMSProject.Controllers
 
             return View(staff);
         }
-        public ActionResult Staffdetails()
+       
+     public ActionResult StaffDelete(int id)
+        {
+            Staff Staff = db.Staffs.Find(id);
+            db.Staffs.Remove(Staff);
+            db.SaveChanges();
+            return RedirectToAction("Staffdetails");
+        }
+      public ActionResult Staffdetails()
         {
             return View(db.Staffs.ToList());
         }

@@ -5,7 +5,13 @@
 }
 
 <h2>Pateint Form</h2>
+@using (Html.BeginForm("Index", "HMS", FormMethod.Get))
+{
+<center>
+    @Html.TextBox("Searching") 
+<input type="Submit" Text="Submit" /> </center>
 
+}
 <table class="table">
     <tr>
         <th>
@@ -36,43 +42,57 @@
             @Html.DisplayNameFor(model => model.Amount)
         </th>
         <th></th>
+        <th>
+            <input type="checkbox" id="checkAll"
+                   ng-click="ToggleSelectAll()" />
+        </th>
+        <c1-multi-select-list-box id="multiSelectList" display-member-path="ProductName" show-select-all-checkbox="true">
+            <c1-items-source source-collection="Model"></c1-items-source>
+        </c1-multi-select-list-box>
+    
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.FirstName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.LastName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Gender)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Age)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Date)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Mobile)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Address)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Disease)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Amount)
-        </td>
-        <td>
-            @Html.ActionLink("Update", "Edit", new { id = item.Id }) |
-            @*@Html.ActionLink("Delete", "Delete", new { id = item.Id })*@
-            <button type="submit" class="btn" onclick="return confirm('Are you sure you want to delete?');"><i class="bi bi-trash-fill"></i>Delete</button>
-        </td>
-    </tr>
-}
 
+    @foreach (var item in Model)
+    {
+        <tr>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gender)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Age)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mobile)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Disease)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Amount)
+            </td>
+            <td>
+                @Html.ActionLink("Update", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+
+            </td>
+        </tr>
+    }
+
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
 </table>

@@ -11,36 +11,18 @@ namespace HMSProject.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class Bill_demo
     {
         public int C_Patient_Id { get; set; }
-
-        [Required(ErrorMessage ="Name is required")]
-        [DisplayName("Patient Name")]
         public string Patient_Name { get; set; }
-
-        [Required(ErrorMessage = "Phone Number is required")]
         public string Mobile { get; set; }
-
-        [Required(ErrorMessage = "Please select the type")]
-        [DisplayName("Payment type")]
         public string Payment_type { get; set; }
-
-        [Required(ErrorMessage = "Doctor's Name is required")]
-        [DisplayName("Doctor's Name")]
-
         public string Doctor_s_Name { get; set; }
-
         public string Desgination { get; set; }
         public string Department { get; set; }
         public Nullable<decimal> Consulation { get; set; }
         public Nullable<decimal> Regulation { get; set; }
-
-
-        [DisplayName("Total Name")]
         public Nullable<decimal> Total_Amount { get; set; }
     }
 }

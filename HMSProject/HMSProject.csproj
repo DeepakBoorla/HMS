@@ -246,7 +246,7 @@
     <Content Include="Views\HMS\Staffdetails.cshtml" />
     <Content Include="Views\HMS\Billdetails.cshtml" />
     <Content Include="Views\HMS\Bill.cshtml" />
-    <Content Include="Views\Home\sum.cshtml" />
+    <Content Include="Views\HMS\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -11,8 +11,7 @@ namespace HMSProject.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel;
-
+    
     public partial class Staff
     {
         public int Id { get; set; }
@@ -20,15 +19,11 @@ namespace HMSProject.Models
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Gender { get; set; }
-
-        [DisplayName("Date of Birth")]
         public Nullable<System.DateTime> Date_of_Birth { get; set; }
         public string Mobile { get; set; }
         public string Email { get; set; }
         public string Designation { get; set; }
         public string Department { get; set; }
-
-        [DisplayName("Date of Joining")]
         public Nullable<System.DateTime> Date_of_joining { get; set; }
         public string Address { get; set; }
         public string City { get; set; }
